@@ -2,6 +2,7 @@ using System;
 using System.Data;
 using MySql.Data.MySqlClient;
 //pls install the package before running the program. To install run as Install-Package MySql.Data on console.
+//pls open the xampp and create the mydb1-->table1 and run the code.
 class AdoNetDemo
 {  static void Main(string[] args)
     {
