@@ -1,5 +1,5 @@
 import java.util.concurrent.TimeUnit;
-public class CircuitSwitching {
+public class ckt {
     public static void main(String[] args) {
         System.out.println("Simulating Circuit Switching:");
         try {
