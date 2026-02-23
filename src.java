@@ -1,6 +1,6 @@
 import java.util.*;
 
-class SimpleRowColumn {
+class src {
 
     public static void main(String[] args) {
 
