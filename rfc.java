@@ -1,6 +1,6 @@
 import java.util.*;
 
-class RailFenceCipher {
+class rfc {
 
     // Encryption Method
     static String encrypt(String text, int key) {
