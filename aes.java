@@ -4,7 +4,7 @@ import javax.crypto.SecretKey;
 import java.util.Base64;
 import java.util.Scanner;
 
-public class AES {
+public class aes {
 
     public static void main(String[] args) throws Exception {
 
