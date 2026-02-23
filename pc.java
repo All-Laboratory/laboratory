@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class ImplementationOfPlayfairCipher {
+public class pc {
 
     static char[][] matrix = new char[5][5];
 
