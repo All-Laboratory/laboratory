@@ -9,7 +9,7 @@ class src {
         System.out.print("Enter Plain Text: ");
         String text = sc.nextLine();
 
-        System.out.print("Ent er Number of Columns: ");
+        System.out.print("Enter Number of Columns: ");
         int cols = sc.nextInt();
 
         int rows = (int) Math.ceil((double) text.length() / cols);
