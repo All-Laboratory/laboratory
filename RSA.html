@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>RSA Demo</title>
+</head>
+<body>
+
+<h2>RSA Algorithm Demo</h2>
+
+Enter Message:
+<input type="number" id="msg">
+<button onclick="startRSA()">Run RSA</button>
+
+<h3>Result:</h3>
+<div id="result"></div>
+
+<script>
+
+// Euclid GCD
+function findGCD(x, y){
+    while(y !== 0){
+        [x, y] = [y, x % y];
+    }
+    return x;
+}
+
+// Find e value
+function findE(phi){
+    for(let i = 2; i < phi; i++){
+        if(findGCD(i, phi) === 1)
+            return i;
+    }
+}
+
+// Find d value
+function findD(e, phi){
+    let k = 1;
+    while(true){
+        if((k * phi + 1) % e === 0)
+            return (k * phi + 1) / e;
+        k++;
+    }
+}
+
+// Modular exponentiation
+function modPower(base, exp, mod){
+    let ans = 1;
+    base = base % mod;
+
+    while(exp > 0){
+        if(exp % 2 === 1)
+            ans = (ans * base) % mod;
+
+        base = (base * base) % mod;
+        exp = Math.floor(exp / 2);
+    }
+    return ans;
+}
+
+function startRSA(){
+
+    // Step 1: primes
+    const p = 3;
+    const q = 11;
+
+    // Step 2: n
+    const n = p * q;
+
+    // Step 3: phi
+    const phi = (p - 1) * (q - 1);
+
+    // Step 4 & 5: keys
+    const e = findE(phi);
+    const d = findD(e, phi);
+
+    // message input
+    let M = Number(document.getElementById("msg").value);
+
+    // encryption
+    let C = modPower(M, e, n);
+
+    // decryption
+    let original = modPower(C, d, n);
+
+    document.getElementById("result").innerHTML =
+    `p = ${p} <br>
+    q = ${q} <br>
+    n = ${n} <br>
+    phi = ${phi} <br>
+    Public Key = (${e}, ${n}) <br>
+    Private Key = (${d}, ${n}) <br><br>
+    Original Message = ${M} <br>
+    Encrypted Message = ${C} <br>
+    Decrypted Message = ${original}`;
+}
+
+</script>
+
+</body>
+</html>
